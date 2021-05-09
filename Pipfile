@@ -20,6 +20,7 @@ psutil = "*"
 kaleido = "*"
 coverage = "*"
 django-coverage-plugin = "*"
+sphinx-rtd-theme = "*"
 
 [dev-packages]
 pytest-django = "*"
