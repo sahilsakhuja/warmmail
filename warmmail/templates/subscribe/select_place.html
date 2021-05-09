@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    {% autoescape off %}
+    <div class="row">
+        <div class="col-4 offset-8" align="right">
+            <a class="btn btn-primary" href="{% url 'subscribe:subscribe_place' data.city data.dominentpol %}" role="button">Subscribe</a>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-8 order-last">
+            {{ data.last_7_days_bar }}
+        </div>
+        <div class="col-4 order-first">
+            <div class="container">
+                <div class="jumbotron jumbotron-fluid">
+                  <div class="container">
+                      <h1 class="display-1 {{ data.aqi_desc.class }}">{{ data.aqi }}</h1>
+                      <div class="lead" style="margin-left: 15px">
+                        <h4 class="{{ data.aqi_desc.class }}">{{ data.aqi_desc.level }}</h4><br>
+                      {{ data.aqi_desc.text }}
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-12">
+            {{ data.month_bar }}
+        </div>
+<!--        <div class="col">-->
+
+<!--            <img src="data:image/png;base64,{{ data.image }}" />-->
+
+<!--        </div>-->
+
+    </div>
+    {% endautoescape %}
+</div>
+
+
+
+{% endblock content %}
