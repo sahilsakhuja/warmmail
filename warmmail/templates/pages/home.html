@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form action="{% url 'subscribe:findplace' %}" method="post">
+        {% csrf_token %}
+        <div class="input-group">
+            <div class="form-outline flex-fill">
+                <input type="search" id="search" name="search_term" class="form-control form-control-lg" placeholder="Type in a city" />
+            </div>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+
+{% endblock content %}

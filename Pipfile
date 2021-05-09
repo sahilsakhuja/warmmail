@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-environ = "*"
+djangorestframework = "*"
+django-model-utils = "*"
+argon2-cffi = "*"
+django-allauth = "*"
+django-crispy-forms = "*"
+django-extensions = "*"
+coreapi = "*"
+sendgrid = "*"
+csci-utils = {editable = true, extras=['luigi', 'dask'], git = "https://github.com/sahilsakhuja/2021sp-csci-utils-sahilsakhuja"}
+pytz = "*"
+psutil = "*"
+kaleido = "*"
+coverage = "*"
+django-coverage-plugin = "*"
+
+[dev-packages]
+pytest-django = "*"
+django-debug-toolbar = "*"
+pytest-cov = "*"
+factory-boy = "*"
+sphinx = "*"
+
+[requires]
+python_version = "3.8"
