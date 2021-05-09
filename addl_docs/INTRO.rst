@@ -7,27 +7,55 @@ Final Project, CSCI E-29 (Spring 2021)
 
 Submitted by: Sahil Sakhuja
 
+.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter
+     :target: https://github.com/pydanny/cookiecutter-django/
+     :alt: Built with Cookiecutter Django
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+     :target: https://github.com/ambv/black
+     :alt: Black code style
+
+:License: MIT
 
 Background
-**********
+----------
 
 With the objective of focusing on the advanced python aspects learnt in the course, I have picked a project which is less heavy on the data science side, but makes greater use of the course concepts themselves.
 
+.. image:: warmmail_intro_pillars.png
+  :width: 600
+  :alt: The pillars and details
+
+
+Idea & Showcase
+---------------
+
 The Idea - Warm Mail: AQI updates as an email every day.
 
-Do this
-**********
+.. image:: warmmail_intro_showcase.png
+  :width: 800
+  :alt: An image of the report that gets generated
 
-A task typically follows conceptual information. Task titles should be imperative. Tasks should have a short introduction sentence that captures the user's goal and introduces the steps, for example, "Verify your products are in the catalog:"
 
-A task should have 3 - 7 steps.  Tasks with more should be broken down into digestible chunks.
+Sneak Peek
+----------
 
-Intro sentence.
+A small sneak peek into the customer journey:
 
-#. Step 1.
+.. image:: warmmail_intro_sneak01.png
+  :width: 800
+  :alt: Screenshot from Django site - 01
 
-#. Step 2.
 
-#. Step 3.
+.. image:: warmmail_intro_sneak02.png
+  :width: 800
+  :alt: Screenshot from Django site - 02
 
-Following the steps, you should add the result and any follow-up tasks needed.
+
+.. image:: warmmail_intro_sneak03.png
+  :width: 800
+  :alt: Screenshot from Django site - 03
+
+
+.. image:: warmmail_intro_sneak04.png
+  :width: 800
+  :alt: Screenshot from Django site - 04
