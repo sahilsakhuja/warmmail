@@ -11,11 +11,7 @@ from django.urls import reverse
 from warmmail.users.forms import UserChangeForm
 from warmmail.users.models import User
 from warmmail.users.tests.factories import UserFactory
-from warmmail.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from warmmail.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 
