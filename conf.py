@@ -50,6 +50,9 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+# Adding csci_utils to autodoc mock
+autodoc_mock_imports = ["csci_utils"]
+
 
 # -- Options for HTML output -------------------------------------------------
 
