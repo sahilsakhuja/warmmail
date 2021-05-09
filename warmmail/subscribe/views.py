@@ -31,15 +31,34 @@ env.read_env(str(ROOT_DIR / ".env"))
 
 
 def index(request):
+    """
+    Base view - the entry page for the website.
+    Renders a page with a search box allowing the user to search for a city or location
+
+    :param request: The HTTP request
+    :return: Renders the page
+    """
     return render(request, "subscribe/index.html")
     # return HttpResponse("Hello, world. You're at the polls index.")
 
 
 def findplace(request):
+    """
+    Renders the page showing a list of all the locations. The user is allowed to submit
+    a text name for the location including any significant address details (like city, country, etc.).
+    Using the API exposed from geonames.org => the system renders a list of all the possible locations
+    from which the user may select a location. Selecting a location means selecting a lat/long which is used
+    for the subsequent steps in the journey.
+    The function calls the Geonames.org API and requires an environment variable as follows:
+    GEONAMES_API_USERNAME="<geonames-username>"
+
+    :param request: HTTP request, expects a POST request with param: search_term
+    :return: Renders the page
+    """
     srch = request.POST["search_term"]
     response = requests.get(
         f"http://api.geonames.org/searchJSON?formatted=true&q={srch}&maxRows=10&lang=es&"
-        f"username=sahilsakhuja&style=full"
+        f"username={env.str('GEONAMES_API_USERNAME')}&style=full"
     )
     if response:
         items = response.json()
@@ -96,8 +115,19 @@ aqi_desc = {
 
 
 def selectplace(request, lat, long):
+    """
+    Renders the page showing the current AQI stats and historic graphs for the selected location.
+    The page also gives a button to the user to "subscribe" to this report.
+    The function calls the AQICN API and requires an environment variable as follows:
+    AQICN_TOKEN="<token from aqicn>"
+
+    :param request: HTTP GET Request
+    :param lat: The selected latitute (passed automatically from findplace)
+    :param long: The selected longiture (passed automatically from findplace)
+    :return: Renders page with the report for the location with a button for user to subscribe.
+    """
     # get the real time aqi data for this lat long
-    aqi = f"https://api.waqi.info/feed/geo:{lat};{long}/?token=d3b715b3649e188d8531e4ce0ae79a0fd130ba46"
+    aqi = f"https://api.waqi.info/feed/geo:{lat};{long}/?token={env.str('AQICN_TOKEN')}"
     response = requests.get(aqi, verify=False, timeout=2)
     if response:
         response = response.json()
@@ -166,6 +196,20 @@ def selectplace(request, lat, long):
 
 
 def subscribeplace(request, city, dominentpol):
+    """
+    The last step for the subsription - this view renders a page that allows the user to subscribe to the chosen report.
+    It shows a form to the user which has the following options:
+    * email address - with generic verification
+    * city - auto-populated basis report selected - non editable
+    * time of day - gives option to user to receive report in Morning / Afternoon / Evening
+    * timezone
+
+    :param request: HTTP GET Request
+    :param city: The name of the city selected for the report - auto-populated by the previous page
+    :param dominentpol: The name of the dominent pollutant in that city -
+    this is a hidden field in the form which is used by the backend report generation
+    :return: Renders the HTML page
+    """
     data = {
         "city": city,
         "dominentpol": dominentpol,
@@ -182,6 +226,14 @@ time_of_day = {
 
 
 def confirmsubscription(request):
+    """
+    A simple page which saves the subscription request and sends out an email verification link
+    The email is sent via Sendgrid and requires an environment variable with the SendGrid API token:
+    SENDGRID_API_KEY="<the token from Sendgrid>"
+
+    :param request: HTTP Post request with fields from subscribeplace view
+    :return: Sends out an email using SendGrid
+    """
     subscription = Subscription()
     subscription.email = request.POST["email"]
     temp_token = "".join(random.choices(string.ascii_letters + string.digits, k=24))
@@ -226,6 +278,15 @@ def confirmsubscription(request):
 
 
 def verifyemail(request, subscription_id, token):
+    """
+    The view that users come to after clicking on the email verification link.
+    It verifies the subscription to allow processing from next day.
+
+    :param request: HTTP Get Request
+    :param subscription_id: Available from the URL
+    :param token: Available from the URL
+    :return: Renders the HTML page
+    """
     subscription = get_object_or_404(Subscription, pk=subscription_id)
     if subscription.temp_token == token:
         # alles gut!

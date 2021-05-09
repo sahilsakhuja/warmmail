@@ -86,6 +86,15 @@ class RowFilterOutput:
 
 
 class GenerateEmails(ExternalTask):
+    """
+    Task to generate the html content to be sent via email.
+    Uses Django's render to string functionality.
+
+    :param city: name of the city for which report has to be generated
+    :param pol: name of the dominant pollutant for that city
+    :param date: the date for which report has to be generated
+    """
+
     city = UrlParameter(default=None)
     pol = Parameter(default="pm25")
     date = DateParameter(default=date.today())
@@ -132,6 +141,11 @@ class GenerateEmails(ExternalTask):
 
 
 class CheckForPendingEmails(Task):
+    """
+    Task to check for pending emails. This uses a "RowFilterOutput" which checks for rows in the database
+    which have the "next_email_date" in the past.
+    For each such row found (city + dominent pollutant fetched frm the DB), the task requires a GenerateEmails task.
+    """
 
     cities = ListParameter(default=None)
     pols = ListParameter(default=None)
@@ -168,9 +182,6 @@ class CheckForPendingEmails(Task):
             )
             try:
                 sg = SendGridAPIClient(os.environ.get("SENDGRID_API_KEY"))
-                response = sg.send(message)
-                print(response.status_code)
-                print(response.body)
-                print(response.headers)
+                sg.send(message)
             except Exception as e:
                 print(e.message)
