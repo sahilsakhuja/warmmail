@@ -207,7 +207,7 @@ def subscribeplace(request, city, dominentpol):
     :param request: HTTP GET Request
     :param city: The name of the city selected for the report - auto-populated by the previous page
     :param dominentpol: The name of the dominent pollutant in that city -
-    this is a hidden field in the form which is used by the backend report generation
+        this is a hidden field in the form which is used by the backend report generation
     :return: Renders the HTML page
     """
     data = {
