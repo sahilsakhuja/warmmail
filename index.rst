@@ -10,6 +10,7 @@ Welcome to WarmMail's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   addl_docs/INTRO
    README
    warmmail/users/USERS
    warmmail/subscribe/SUBSCRIBE
