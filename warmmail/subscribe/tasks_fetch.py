@@ -10,6 +10,10 @@ from luigi.task import Task
 
 
 class DownloadAQI(Task):
+    """
+    Task that downloads the daily AQI report from aqicn.org.
+    No inputs required.
+    """
 
     __version__ = "v0.1.0"
 
@@ -31,6 +35,9 @@ class DownloadAQI(Task):
 
 
 class ConvertAQIFileToParquet(Task):
+    """
+    Task to clean up the file fetched from AQICN.org and save as a Parquet (using Salted Output).
+    """
 
     __version__ = "v0.1.0"
 

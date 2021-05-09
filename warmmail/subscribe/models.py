@@ -7,6 +7,20 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Subscription(models.Model):
+    """
+    The main subscription model with below fields.
+    Constraints: Only 1 subscription allowed per email + city combination.
+
+    :var email: The email address of the user
+    :var verified: A boolean flag indicating if the subscription has been verified
+    :var temp_token: Temporary token generated for verification
+    :var city: The name of the city selected
+    :var dominentpol: the name of the dominent pollutant for that city
+    :var next_email_date: the date when the next email has to be sent
+    :var created_date: the date when this subscription was created
+    :var update_date: the date when this subscription was last updated
+    :var status: an ENUM if subscription is active or not
+    """
 
     email = models.EmailField()
     verified = models.BooleanField(default=False)

@@ -10,8 +10,9 @@ Welcome to WarmMail's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   README.rst
-
+   README
+   warmmail/users/USERS
+   warmmail/subscribe/SUBSCRIBE
 
 
 Indices and tables
