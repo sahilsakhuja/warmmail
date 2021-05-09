@@ -16,7 +16,6 @@ coreschema==0.0.4
 coverage==5.5
 cramjam==2.3.0
 cryptography==3.4.7
--e git+https://github.com/sahilsakhuja/2021sp-csci-utils-sahilsakhuja@0321b7967a97f4ab63e095dcd426a9ab5d2d9ed3#egg=csci_utils
 dask==2021.4.1
 defusedxml==0.7.1
 distlib==0.3.1
