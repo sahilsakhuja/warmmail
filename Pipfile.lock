@@ -279,7 +279,7 @@
                 "luigi"
             ],
             "git": "https://github.com/sahilsakhuja/2021sp-csci-utils-sahilsakhuja",
-            "ref": "0321b7967a97f4ab63e095dcd426a9ab5d2d9ed3"
+            "ref": "232382ab4ddd15a70ad78424fdadd3f2a038a7e0"
         },
         "dask": {
             "extras": [
