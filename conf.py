@@ -13,7 +13,6 @@
 import os
 import sys
 
-import django
 import sphinx_rtd_theme  # noqa: F401
 
 sys.path.insert(0, os.path.abspath("."))
@@ -21,9 +20,6 @@ sys.path.insert(0, os.path.abspath("."))
 # Specify settings module
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 
-# Setup Django
-
-django.setup()
 
 # -- Project information -----------------------------------------------------
 
@@ -51,7 +47,7 @@ templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # Adding csci_utils to autodoc mock
-autodoc_mock_imports = ["csci_utils"]
+autodoc_mock_imports = ["csci_utils", "django"]
 
 
 # -- Options for HTML output -------------------------------------------------
