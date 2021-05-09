@@ -27,6 +27,7 @@ django-debug-toolbar = "*"
 pytest-cov = "*"
 factory-boy = "*"
 sphinx = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.8"
