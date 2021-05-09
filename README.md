@@ -1,6 +1,17 @@
 # Final Project
 
 Add any badges to your ***published documentation*** up here!
+[![Documentation Status](https://readthedocs.org/projects/warmmail/badge/?version=latest)](https://warmmail.readthedocs.io/en/latest/?badge=latest)
+
+[![Build Status](https://travis-ci.com/sahilsakhuja/warmmail.svg?branch=main)](https://travis-ci.com/sahilsakhuja/warmmail)
+
+
+Link to Sphinx documentation:
+[Read the docs - Warmmail](https://warmmail.readthedocs.io/en/latest/)
+
+The Sphinx documentation covers the entire scope of the project i.e. Project Introduction, deep-dive into components / architecture, highlights from code and learnings thereof. Hence, I have chosen not to add any further details here - please refer to the Sphinx documentation directly.
+
+Additionally, Sphinx Build is directly linked to my personal repo which is a public repo and auto-builds via Git hook when new code is pushed to the repo.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
