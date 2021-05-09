@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Country</th>
+                <th scope="col">Lat, Long</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for place in places %}
+                <tr>
+                    <td scope="row">{{ forloop.counter }}</td>
+                    <td>{{ place.name }}</td>
+                    <td>{{ place.country }}</td>
+                    <td>{{ place.lat }}, {{ place.long }}</td>
+                    <td><a href="{% url 'subscribe:select_place' place.lat place.long %}">Select</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
