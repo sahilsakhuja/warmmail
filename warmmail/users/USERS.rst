@@ -1,5 +1,5 @@
-Users App
-=========
+App: Users
+==========
 
 Welcome to the documentation for the Users App. The users app is the default app created from the Cookiecutter-Django repo. Below, you can find some basic commands about how to create new users and provide access.
 

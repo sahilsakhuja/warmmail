@@ -11,9 +11,10 @@ Welcome to WarmMail's documentation!
    :caption: Contents:
 
    addl_docs/INTRO
-   README
-   warmmail/users/USERS
+   addl_docs/ARCH
+   addl_docs/PYTHON
    warmmail/subscribe/SUBSCRIBE
+   warmmail/users/USERS
 
 
 Indices and tables

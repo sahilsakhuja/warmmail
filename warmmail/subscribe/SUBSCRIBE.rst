@@ -1,5 +1,5 @@
-Subscribe App
-=============
+App: Subscribe
+==============
 
 Welcome to the documentation for the Subscribe App. The subscribe app is the central app for this Django project.
 

@@ -53,6 +53,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # Adding csci_utils to autodoc mock
 autodoc_mock_imports = ["csci_utils"]
 
+pygments_style = "sphinx"
 
 # -- Options for HTML output -------------------------------------------------
 
