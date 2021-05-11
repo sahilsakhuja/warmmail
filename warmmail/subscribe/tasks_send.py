@@ -153,7 +153,7 @@ class CheckForPendingEmails(Task):
 
     def requires(self):
         return {
-            k: GenerateEmails(city=k, pol=self.pols[i])
+            k: self.clone(GenerateEmails, city=k, pol=self.pols[i])
             for i, k in enumerate(self.cities)
         }
 
